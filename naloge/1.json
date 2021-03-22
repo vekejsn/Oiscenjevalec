@@ -1,13 +1,48 @@
 {
     "vrednotenja" : [
         {
+            "naslov":  "",
             "navodila" : [
                 {
-                    "tocke": 1,
-                    "besedilo" : "Ali podana povezava kaže na GitHub repozitorij ocenjevanega študenta, ki vsebuje vsaj začetno verzijo aplikacije <strong>Turistični boni?</strong>"
+                    "tocke" : 1,
+                    "besedilo" : "Ali podana povezava kaže na GitHub repozitorij ocenjevanega študenta, ki vsebuje vsaj začetno verzijo aplikacije <strong>Turistični boni</strong>?"
                 }
             ],
-            "format" : "# A #\\s*(.+?)\\s*#"
+            "opomba" : "",
+            "format" : "# A #\\s*(.+?)\\s*#",
+            "tip" : "prikazi"
+        },
+        {
+            "naslov" : "",
+            "navodila" : [
+                {
+                    "tocke" : 1,
+                    "besedilo" : "Ali so podani ukazi git ustrezni?\n<pre>git init\ngit remote add origin https://github.com/ois-2020-2021/DN1-{študent}.git\ngit pull origin master</pre>\nNamesto ukaza <ic>git pull origin master</ic> je pravilen tudi ukaz <ic>git pull</ic>.\nali\n<pre>git clone https://github.com/ois-2020-2021/DN1-{študent}.git</pre>\nNamesto povezave <ic>https://github.com/ois-2020-2021/DN1-{študent}.git</ic> je sprejemljiva tudi povezava <ic>https://{študent}@github.com/ois-2020-2021/DN1-{študent}.git</ic> ali <ic>git@github.com:ois-2020-2021/DN1-{študent}.git</ic>.\nČe je oddanih ukazov več in so le-ti vsebinsko ustrezni ter vsebujejo zgoraj omenjeno podmnožico ukazov, vrednotite odgovor kot pravilen."
+                }
+            ],
+            "opomba" : "",
+            "format" : "# B #\\s*(.+?)\\s*#",
+            "tip" : "prikazi"
+        },
+        {
+            "naslov" : "Ali oddana spletna povezava kaže na ustrezno uveljavitev v GitHub repozitoriju?",
+            "navodila" : [
+                {
+                    "tocke" : 1,
+                    "besedilo" : "Uveljavitev prikazuje dodajanje datoteke <ic>midpoint-util.js</ic>."
+                },
+                {
+                    "tocke" : 1,
+                    "besedilo" : "Uveljavitev prikazuje odstranjevanje datoteke <ic>nepotrebno.js</ic>."
+                },
+                {
+                    "tocke" : 1,
+                    "besedilo" : "Komentar uveljavitve je enak <ic>Priprava potrebnih JavaScript knjižnic</ic> (upoštevajte tudi v primeru manjših slovničnih napak, npr. do 3 različni znaki)."
+                }
+            ],
+            "opomba" : "Če uveljavitev vsebuje še kakšne dodatne spremembe, se to ne šteje za napačno, mora pa vsebovati zgornje zahteve. Če so zgornje zahteve implementirane v več različnih uveljavitvah, se štejejo zgolj tiste funkcionalnosti, ki so izvedene v oddani uveljavitvi.",
+            "format" : "# C #\\s*(.+?)\\s*#",
+            "tip" : "commit"
         }
     ]
 }
