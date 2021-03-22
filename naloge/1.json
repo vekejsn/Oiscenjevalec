@@ -1,48 +1,228 @@
 {
-    "vrednotenja" : [
+    "vrednotenja": [
         {
-            "naslov":  "",
-            "navodila" : [
+            "naslov": "",
+            "navodila": [
                 {
-                    "tocke" : 1,
-                    "besedilo" : "Ali podana povezava kaže na GitHub repozitorij ocenjevanega študenta, ki vsebuje vsaj začetno verzijo aplikacije <strong>Turistični boni</strong>?"
+                    "tocke": 1,
+                    "besedilo": "Ali podana povezava kaže na GitHub repozitorij ocenjevanega študenta, ki vsebuje vsaj začetno verzijo aplikacije <strong>Turistični boni</strong>?"
                 }
             ],
-            "opomba" : "",
-            "format" : "# A #\\s*(.+?)\\s*#",
-            "tip" : "prikazi"
+            "opomba": "",
+            "format": "# A #\\s*(.+?)\\s*#",
+            "tip": "prikazi"
         },
         {
-            "naslov" : "",
-            "navodila" : [
+            "naslov": "",
+            "navodila": [
                 {
-                    "tocke" : 1,
-                    "besedilo" : "Ali so podani ukazi git ustrezni?\n<pre>git init\ngit remote add origin https://github.com/ois-2020-2021/DN1-{študent}.git\ngit pull origin master</pre>\nNamesto ukaza <ic>git pull origin master</ic> je pravilen tudi ukaz <ic>git pull</ic>.\nali\n<pre>git clone https://github.com/ois-2020-2021/DN1-{študent}.git</pre>\nNamesto povezave <ic>https://github.com/ois-2020-2021/DN1-{študent}.git</ic> je sprejemljiva tudi povezava <ic>https://{študent}@github.com/ois-2020-2021/DN1-{študent}.git</ic> ali <ic>git@github.com:ois-2020-2021/DN1-{študent}.git</ic>.\nČe je oddanih ukazov več in so le-ti vsebinsko ustrezni ter vsebujejo zgoraj omenjeno podmnožico ukazov, vrednotite odgovor kot pravilen."
+                    "tocke": 1,
+                    "besedilo": "Ali so podani ukazi git ustrezni?\n<pre>git init\ngit remote add origin https://github.com/ois-2020-2021/DN1-{študent}.git\ngit pull origin master</pre>\nNamesto ukaza <ic>git pull origin master</ic> je pravilen tudi ukaz <ic>git pull</ic>.\nali\n<pre>git clone https://github.com/ois-2020-2021/DN1-{študent}.git</pre>\nNamesto povezave <ic>https://github.com/ois-2020-2021/DN1-{študent}.git</ic> je sprejemljiva tudi povezava <ic>https://{študent}@github.com/ois-2020-2021/DN1-{študent}.git</ic> ali <ic>git@github.com:ois-2020-2021/DN1-{študent}.git</ic>.\nČe je oddanih ukazov več in so le-ti vsebinsko ustrezni ter vsebujejo zgoraj omenjeno podmnožico ukazov, vrednotite odgovor kot pravilen."
                 }
             ],
-            "opomba" : "",
-            "format" : "# B #\\s*(.+?)\\s*#",
-            "tip" : "prikazi"
+            "opomba": "",
+            "format": "# B #\\s*(.+?)\\s*#",
+            "tip": "prikazi"
         },
         {
-            "naslov" : "Ali oddana spletna povezava kaže na ustrezno uveljavitev v GitHub repozitoriju?",
-            "navodila" : [
+            "naslov": "Ali oddana spletna povezava kaže na ustrezno uveljavitev v GitHub repozitoriju?",
+            "navodila": [
                 {
-                    "tocke" : 1,
-                    "besedilo" : "Uveljavitev prikazuje dodajanje datoteke <ic>midpoint-util.js</ic>."
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev prikazuje dodajanje datoteke <ic>midpoint-util.js</ic>."
                 },
                 {
-                    "tocke" : 1,
-                    "besedilo" : "Uveljavitev prikazuje odstranjevanje datoteke <ic>nepotrebno.js</ic>."
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev prikazuje odstranjevanje datoteke <ic>nepotrebno.js</ic>."
                 },
                 {
-                    "tocke" : 1,
-                    "besedilo" : "Komentar uveljavitve je enak <ic>Priprava potrebnih JavaScript knjižnic</ic> (upoštevajte tudi v primeru manjših slovničnih napak, npr. do 3 različni znaki)."
+                    "tocke": 1,
+                    "besedilo": "Komentar uveljavitve je enak <ic>Priprava potrebnih JavaScript knjižnic</ic> (upoštevajte tudi v primeru manjših slovničnih napak, npr. do 3 različni znaki)."
                 }
             ],
-            "opomba" : "Če uveljavitev vsebuje še kakšne dodatne spremembe, se to ne šteje za napačno, mora pa vsebovati zgornje zahteve. Če so zgornje zahteve implementirane v več različnih uveljavitvah, se štejejo zgolj tiste funkcionalnosti, ki so izvedene v oddani uveljavitvi.",
-            "format" : "# C #\\s*(.+?)\\s*#",
-            "tip" : "commit"
+            "opomba": "Če uveljavitev vsebuje še kakšne dodatne spremembe, se to ne šteje za napačno, mora pa vsebovati zgornje zahteve. Če so zgornje zahteve implementirane v več različnih uveljavitvah, se štejejo zgolj tiste funkcionalnosti, ki so izvedene v oddani uveljavitvi.",
+            "format": "# C #\\s*(.+?)\\s*#",
+            "tip": "commit"
+        },
+        {
+            "naslov": "Ali uveljavitev v GitHub repozitoriju ustreza zahtevam v navodilih?",
+            "navodila": [
+                {
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev prikazuje dodajanje vrstice <ic>&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"css/stili.css\"></ic> oziroma ekvivalenta v datoteko <ic>turisticni-boni.html</ic>."
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev prikazuje dodajanje CSS lastnosti <ic>html</ic> in <ic>body</ic> v datoteki <ic>stili.css</ic> iz stilov elementov &lt;html> in &lt;body> s spletne strani <ic>turisticni-boni.html</ic>.\n<ic>css/stili.css</ic>\n<pre class=\"lang-css\"><code>html, body {\nheight: 100%;\nwidth: 100%;\npadding: 0;\nmargin: 0 0 0 0;\ndisplay: flex;\n}</code></pre>"
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": "Komentar uveljavitve je enak <ic>Dodajanje stilov spletne strani</ic> (upoštevajte tudi v primeru manjših slovničnih napak besedila uveljavitve, npr. do 3 različni znaki)."
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev pripada veji <ic>podoba</ic> (izberete zavihek Commits in nato iz spustnega seznama zgoraj izberite vejo <ic>podoba</ic> ter preverite, če se uveljavitev pojavi na seznamu)."
+                }
+            ],
+            "opomba": "Če so CSS lastnosti za gradnika html in body v datoteki stili.css podvojeni, potem točke ne dodelite.",
+            "format": "# D #\\s*(.+?)\\s*#",
+            "tip": "commit"
+        },
+        {
+            "naslov": "Ali uveljavitev v GitHub repozitoriju ustreza zahtevam v navodilih?",
+            "navodila": [
+                {
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev prikazuje dodajanje CSS atributov <ic>background-color: #fde7ea;</ic> ali <ic>background: #fde7ea;</ic> in <ic>color: #a80b1d;</ic> v CSS pseudo-razred <ic>input[type='number']:focus</ic>"
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev prikazuje dodajanje CSS atributa <ic>font-weight: bold;</ic> v CSS pseudo-razred <ic>input[type='number']:focus.</ic>"
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": "Komentar uveljavitve je enak <ic>Sprememba vnosnega polja</ic> (upoštevajte tudi v primeru manjših slovničnih napak, npr. do 3 različni znaki).\nMožna rešitev v <ic>turisticni-boni.html</ic>\n<pre class=\"lang-css\"><code>input[type=\"number\"]:focus {\nbackground-color: #fde7ea;\ncolor: #a80b1d;\nfont-weight: bold;\n}</code></pre>"
+                }
+            ],
+            "opomba": "",
+            "format": "# E #\\s*(.+?)\\s*#",
+            "tip": "commit"
+        },
+        {
+            "naslov": "Ali uveljavitev v GitHub repozitoriju ustreza zahtevam v navodilih?",
+            "navodila": [
+                {
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev prikazuje dodajanje HTML elementa <ic>&lt;input type=\"button\" /></ic> oz. vsebinski ekvivalent z atributom <ic>id=\"najblizjiHotel\"</ic> in napisom <ic>Najbližji hotel (value=\"Najbližji hotel\")</ic> v datoteki <ic>turisticni-boni.html</ic>."
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": "Nov gumb je odmaknjen za <ic>30px</ic>, kot prikazuje slika"
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": "Komentar uveljavitve je enak <ic>Dodajanje gumba za hotel</ic> (upoštevajte tudi v primeru manjših slovničnih napak, npr. do 3 različni znaki).\nMožna rešitev v <ic>turisticni-boni.html></ic>\n<pre class=\"lang-html\"><code>&lt;input type=\"button\" id=\"najblizjiHotel\" style=\"margin-left:30px\" value=\"Najbližji hotel\"/></code></pre>"
+                }
+            ],
+            "opomba": "",
+            "format": "# F #\\s*(.+?)\\s*#",
+            "tip": "commit"
+        },
+        {
+            "naslov": "Ali uveljavitev v GitHub repozitoriju ustreza zahtevam v navodilih?",
+            "navodila": [
+                {
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev prikazuje dodajanje CSS selektorjev <ic>rob</ic> in <ic>senca</ic> iz vaje V2 v datoteki <ic>stili.css</ic>."
+                },
+                {
+                    "tocke": 2,
+                    "besedilo": "Uveljavitev prikazuje dodajanje CSS razredov <ic>rob</ic> in <ic>senca</ic> v datoteki <ic>turisticni-boni.html</ic> HTML elementom z <ic>id</ic> vrednostmi <ic>odrasli, otroci, nocitev, radij in najblizjiHotel</ic>"
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev prikazuje dodajanje CSS razredov <ic>rob</ic> in <ic>senca</ic> v datoteki <ic>turisticni-boni.html</ic> HTML elementu <ic>&lt;telo></ic>"
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": "Komentar uveljavitve je enak <ic>Dodajanje robov in senc</ic> (upoštevajte tudi v primeru manjših slovničnih napak, npr. do 3 različni znaki)."
+                }
+            ],
+            "opomba": "",
+            "format": "# G #\\s*(.+?)\\s*#",
+            "tip": "commit"
+        },
+        {
+            "naslov": "Ali uveljavitev v GitHub repozitoriju ustreza zahtevam v navodilih?",
+            "navodila": [
+                {
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev prikazuje dodajanje CSS pravil <ic>width: 100%</ic> (tabela čez celotno širino) in <ic>font-size: 90%</ic> (90 % velikost pisave) HTML tabeli <ic>#tabelaParkov</ic>"
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev prikazuje dodajanje CSS pravil <ic>vertical-align: top</ic> (zgornja poravnava besedila v celici) in <ic>text-align: left</ic> (leva poravnava besedila v celici) celicam HTML tabeli <ic>#tabelaParkov td</ic>."
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev prikazuje dodajanje CSS pravila za desni odmik <ic>padding-right: 10px</ic> besedila celice HTML tabele <ic>#tabelaParkov td</ic>."
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": "Komentar uveljavitve je enak <ic>Prevetritev tabele</ic> (upoštevajte tudi v primeru manjših slovničnih napak, npr. do 3 različni znaki).\nMožna rešitev v <ic>css/stili.css</ic>.\n<pre class=\"lang-css\"><code>#tabelaParkov {\nborder-spacing:0 5px;\nwidth: 100%;\nfont-size: 90%;\n}\n#tabelaParkov th,\n#tabelaParkov td {\nborder: 0px;\nvertical-align: top;\ntext-align: left;\npadding-right: 10px;\n}</code></pre>"
+                }
+            ],
+            "opomba": "",
+            "format": "# H #\\s*(.+?)\\s*#",
+            "tip": "commit"
+        },
+        {
+            "naslov": "Ali uveljavitev v GitHub repozitoriju ustreza zahtevam v navodilih?",
+            "navodila": [
+                {
+                    "tocke": 2,
+                    "besedilo": "Uveljavitev prikazuje dodajanje ustreznih <ic>Font Awesome</ic> slikovnih ikon pred teksti <strong>odrasli, otrok</strong> in <strong>nočitev</strong> ter pred <strong>skupno vrednostjo bona</strong> s HTML elementi <ic>i</ic> in izbiro slikovnih ikon znotraj HTML atributa <ic>class</ic>."
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev prikazuje dodajanje CSS razreda <ic>desno</ic> elementu z enoličnim identifikatorjem <ic>izracun</ic> v datoteki <ic>turisticni-boni.html</ic>."
+                },
+                {
+                    "tocke": 2,
+                    "besedilo": "Uveljavitev prikazuje dodajanje CSS razreda <ic>desno</ic> v datoteki <ic>css/stili.css</ic> ter opredelitev atributov, in sicer desna horizontalna poravnava HTML atributa (npr. <ic>text-align: right;</ic>), barvo <ic>indianred</ic> (npr. <ic>color: indianred;</ic>), vrsto pisave <ic>Arial Narrow</ic> (npr. <ic>font-family: \"Arial Narrow\";</ic>), ter odmik na desni strani (npr. <ic>margin-right: 4px;</ic> ali <ic>padding-right: 4px;</ic>)."
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": "Komentar uveljavitve je enak <ic>Stilski osnovni podatki</ic> (upoštevajte tudi v primeru manjših slovničnih napak, npr. do 3 različni znaki).\nMožna rešitev v <ic>turisticni-boni.html</ic> in <ic>css/stili.css.</ic>\n<ic>turisticni-boni.html</ic>\n<pre class=\"lang-html\"><code>&lt;input id=\"odrasli\" class=\"senca rob\" type=\"number\" min=\"0\" max=\"100\" value=\"2\" width=\"30%\" />\nx&lt;i class=\"fas fa-male\">&lt;/i>odrasli\n&lt;br />\n&lt;input id=\"otroci\" class=\"senca rob\" type=\"number\" min=\"0\" max=\"100\" value=\"1\" width=\"30%\" />\nx&lt;i class=\"fas fa-baby\">&lt;/i>otrok\n&lt;br />\n&lt;input id=\"nocitev\" class=\"senca rob\" type=\"number\" min=\"1\" max=\"100\" value=\"3\" width=\"30%\" />\nx&lt;i class=\"fas fa-bed\">&lt;/i>nočitev\n&lt;br />\n&lt;div id=\"izracun\" style=\"margin-top: 10px\" class=\"desno\">\n&lt;label>Bon skupaj za: &lt;i class=\"fas fa-money-bill-wave\">&lt;/i>&lt;/label>\n&lt;label class=\"vsota\">...&lt;/label> €\n&lt;/div></code></pre>\n<ic>css/stili.css</ic>\n<pre class=\"lang-css\"><code>.desno {\ntext-align: right;\nfont-family: \"Arial Narrow\";\ncolor: indianred;\nmargin-right: 4px;\n}</code></pre>"
+                }
+            ],
+            "opomba": "",
+            "format": "# I #\\s*(.+?)\\s*#",
+            "tip": "commit"
+        },
+        {
+            "naslov": "Ali oddaja ustreza zahtevam v navodilih in vsebuje naslednje ukaze?",
+            "navodila": [
+                {
+                    "tocke": 1,
+                    "besedilo": "Premik v vejo <ic>master</ic>\n<pre>git checkout master</pre>"
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": " Združitev veje <ic>podoba</ic> z vejo <ic>master</ic>\n<pre>git merge podoba</pre>"
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev sprememb v oddaljenem GitHub repozitoriju.\n<pre>git push origin master</pre>\nali\n<pre>git push</pre>"
+                }
+            ],
+            "opomba": "",
+            "format": "# J #\\s*(.+?)\\s*#",
+            "tip": "prikazi"
+        },
+        {
+            "naslov": "Ali uveljavitev v GitHub repozitoriju ustreza zahtevam v navodilih?",
+            "navodila": [
+                {
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev prikazuje dodajanje vrstic <ic>&lt;script src=\"skripte/midpoint-util.js\">&lt;/script></ic> oziroma ekvivalenta v datoteko <ic>turisticni-boni.html</ic>"
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev prikazuje dodajanje vrstice <ic>&lt;script src=\"skripte/skripta.js\">&lt;/script></ic> oziroma ekvivalenta v datoteko <ic>turisticni-boni.html</ic>."
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev prikazuje dodajanje HTML atributa <ic>name</ic> z enakim imenom vsem trem izbirnim gumbom <ic>Osnovni podatki, Interesni parki in Hoteli</ic> oziroma HTML elementom <ic>input type=\"radio\"</ic>."
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev pripada veji <ic>parki</ic> (izberete zavihek Commits in nato iz spustnega seznama zgoraj vejo <ic>parki</ic> ter preverite, če se uveljavitev pojavi na seznamu).\nMožna rešitev v <ic>turisticni-boni.html</ic>\n<pre class=\"lang-html\"><code>&lt;script src=\"skripte/midpoint-util.js\">&lt;/script>\n&lt;script src=\"skripte/skripta.js\">&lt;/script>\n...\n&lt;input type=\"radio\" id=\"prvi\" name=\"korak\" value=\"osebe\">\n&lt;label for=\"prvi\">Osnovni podatki&lt;/label>\n...\n&lt;input type=\"radio\" id=\"drugi\" name=\"korak\" value=\"parki\">\n&lt;label for=\"drugi\">Interesni parki&lt;/label>\n...\n&lt;input type=\"radio\" id=\"tretji\" name=\"korak\" value=\"hoteli\">\n&lt;label for=\"tretji\">Hoteli&lt;/label></code></pre>"
+                }
+            ],
+            "opomba": "",
+            "format": "# K #\\s*(.+?)\\s*#",
+            "tip": "commit"
         }
     ]
 }

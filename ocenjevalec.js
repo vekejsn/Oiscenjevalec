@@ -41,7 +41,7 @@ function napaka(besedilo) {
 function izpisiStran() {
     let naloge = document.getElementById('naloge');
     naloge.innerHTML = '';
-    vrednotenje.forEach((el) => {
+    vrednotenje.forEach((el, index) => {
         let row = cE('div', '', 'row mt-3 mx-5', naloge);
         cE('hr', '', '', row);
         let tockeDiv = cE('div', '', 'col-md-6', row);
@@ -54,10 +54,19 @@ function izpisiStran() {
 
         for (let i = 0; i < el.navodila.length; i++) {
             let li = cE('li', '', '', ol);
-            let cbx = cE('input', '', '', li);
+            let label = cE('label', '' , 'tocke mx-2', li);
+            label.for = index + '-' + i;
+            let cbx = cE('input', '', '', label);
             cbx.type = 'checkbox';
             cbx.value = el.navodila[i].tocke;
-            cE('span', el.navodila[i].tocke + ' tocka' , 'tocke mx-2', li);
+            cbx.id = index + '-' + i;
+            let tocke = 'točke';
+            switch(el.navodila[i].tocke % 10){
+                case 0: tocke = 'točk'; break;
+                case 1: tocke = 'točka'; break;
+                case 2: tocke = 'točki'; break;
+            }
+            label.appendChild(document.createTextNode(' ' + el.navodila[i].tocke + ' ' + tocke));
             cE('span', el.navodila[i].besedilo , '', li);
         }
 
@@ -82,8 +91,9 @@ function izpisiStran() {
                 let url = rexp.exec(oddaja);
                 if (url && url.length == 2) {
                     url = url[1];
-                    let ifr = cE('iframe', '', '', prikazDiv);
-                    ifr.src = url;
+                    let a = cE('a', url, '', prikazDiv);
+                    a.href = url;
+                    a.target = '_blank';
                 }
                 else {
                     cE('h5', 'Ne najdem resitve v oddaji', 'text-danger', prikazDiv);
@@ -95,5 +105,7 @@ function izpisiStran() {
                 break;
             }
         }
+
+        hljs.highlightAll();
     });
 }

@@ -1,9 +1,21 @@
 ic {
     font-family: monospace;
     background-color: #eee;
-    border-radius: 0.1em;
+    display: inline-block;
+    border-radius: 0.2em;
 }
 
 pre {
     background-color: #eee;
 }
+
+.tocke {
+    padding: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 0;
+    border-radius: 6px;
+    background-color: #d9ffb3;
+    color: #264d00;
+    font-weight: bold;
+} 
