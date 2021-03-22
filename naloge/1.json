@@ -1,0 +1,13 @@
+{
+    "vrednotenja" : [
+        {
+            "navodila" : [
+                {
+                    "tocke": 1,
+                    "besedilo" : "Ali podana povezava kaže na GitHub repozitorij ocenjevanega študenta, ki vsebuje vsaj začetno verzijo aplikacije <strong>Turistični boni?</strong>"
+                }
+            ],
+            "format" : "# A #\\s*(.+?)\\s*#"
+        }
+    ]
+}
