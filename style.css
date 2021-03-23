@@ -28,3 +28,7 @@ pre {
     white-space: -o-pre-wrap;   
     word-wrap: break-word;       
 }
+
+tr:nth-child(even){
+    background-color: #8bb4f7;
+}

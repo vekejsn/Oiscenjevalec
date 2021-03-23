@@ -75,6 +75,8 @@ function oceniOddajo() {
     cE('pre', '[' + celice.join(',') + '].forEach((i,ii)=>{document.getElementById("id_chosenlevelid__idx_"+ii+"_"+i).checked=true;});', 'wrap mb-5', ocena);
 }
 
+let linkRepoz = "";
+
 function izpisiStran() {
     let naloge = document.getElementById('naloge');
     naloge.innerHTML = '';
@@ -130,6 +132,7 @@ function izpisiStran() {
                 break;
             }
             case 'commit': {
+
                 let rexp = new RegExp(el.format, 's');
                 let url = rexp.exec(oddaja);
                 if (url && url.length == 2) {
@@ -137,6 +140,9 @@ function izpisiStran() {
                     let a = cE('a', url, '', prikazDiv);
                     a.href = url;
                     a.target = '_blank';
+                    if(index == 15){
+                        cE('pre', "git clone " + url, '', prikazDiv);
+                    }
                 }
                 else {
                     cE('h5', 'Ne najdem resitve v oddaji', 'text-danger', prikazDiv);
