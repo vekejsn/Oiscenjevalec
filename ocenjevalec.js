@@ -2,6 +2,7 @@
 
 let oddaja = "";
 let vrednotenje = {};
+let offsets = {};
 
 function cE(tag, innerHTML, classList, parent) {
     let el = document.createElement(tag);
@@ -17,7 +18,9 @@ function zacniOcenjevanje() {
 
     let xhttp = new XMLHttpRequest();
     xhttp.onload = (ev) => {
-        vrednotenje = JSON.parse(ev.target.responseText).vrednotenja;
+        let json = JSON.parse(ev.target.responseText);
+        vrednotenje = json.vrednotenja;
+        offsets = json.offsets;
         izpisiStran();
     };
 
@@ -38,6 +41,40 @@ function napaka(besedilo) {
     };
 }
 
+function oceniOddajo() {
+    let ocena = document.getElementById('ocena');
+    ocena.innerHTML = '';
+    let tbl = cE('table', '<thead><tr><th scope="col">Sklop</th><th scope="col">Tocke</th></tr></thead>', 'table mb-5', ocena);
+    let body = cE('tbody', '', '', tbl);
+
+    let vsota = {};
+    
+    Array.from(document.querySelectorAll('input[type="checkbox"]')).forEach( (el) => {
+        let value = (el.checked) ? parseInt(el.value) : 0;
+        if (vsota[el.sklop]) 
+            vsota[el.sklop] += value;
+        else
+            vsota[el.sklop] = value;
+    });
+    
+    let skupaj = 0;
+
+    let celice = [];
+    Object.keys(vsota).forEach( (sklop) => {
+        let tr = cE('tr', '', '', body);
+        cE('td', sklop, '', tr);
+        cE('td', (vsota[sklop]) ? vsota[sklop] : '0', '', tr);
+        skupaj += vsota[sklop];
+        celice.push(offsets[sklop] + vsota[sklop]);
+    });
+    let tr = cE('tr', '', '', body);
+    cE('th', 'Skupaj', '', tr);
+    cE('th', skupaj, '', tr);
+
+    cE('p','Hitri vnos v Moodle - prilepi v konzolo na strani za vrednotenje oddaje', 'lead', ocena);
+    cE('pre', '[' + celice.join(',') + '].forEach((i,ii)=>{document.getElementById("id_chosenlevelid__idx_"+ii+"_"+i).checked=true;});', 'wrap mb-5', ocena);
+}
+
 function izpisiStran() {
     let naloge = document.getElementById('naloge');
     naloge.innerHTML = '';
@@ -47,31 +84,37 @@ function izpisiStran() {
         let tockeDiv = cE('div', '', 'col-md-6', row);
         let prikazDiv = cE('div', '', 'col-md-6', row);
 
-        if (el.naslov)
-            cE('h5', el.naslov, '', tockeDiv);
-        
-        let ol = cE('ol', '', 'form-group mt-1', tockeDiv);
-
         for (let i = 0; i < el.navodila.length; i++) {
-            let li = cE('li', '', '', ol);
-            let label = cE('label', '' , 'tocke mx-2', li);
-            label.for = index + '-' + i;
-            let cbx = cE('input', '', '', label);
-            cbx.type = 'checkbox';
-            cbx.value = el.navodila[i].tocke;
-            cbx.id = index + '-' + i;
-            let tocke = 'točke';
-            switch(el.navodila[i].tocke % 10){
-                case 0: tocke = 'točk'; break;
-                case 1: tocke = 'točka'; break;
-                case 2: tocke = 'točki'; break;
-            }
-            label.appendChild(document.createTextNode(' ' + el.navodila[i].tocke + ' ' + tocke));
-            cE('span', el.navodila[i].besedilo , '', li);
-        }
+            if (i > 0)
+                cE('hr', '', '', tockeDiv);
+            if (el.navodila[i].naslov)
+                cE('h5', el.navodila[i].naslov, '', tockeDiv);
 
-        if (el.opomba)
-            cE('p', el.opomba, 'small', tockeDiv);
+            let ol = cE('ol', '', 'form-group mt-1', tockeDiv);
+
+            for (let j = 0; j < el.navodila[i].naloge.length; j++) {
+                let li = cE('li', '', '', ol);
+                let label = cE('label', '' , 'tocke mx-2', li);
+                label.for = index + '-' + el.navodila[i].sklop + '-' + j;
+                let cbx = cE('input', '', '', label);
+                cbx.type = 'checkbox';
+                cbx.value = el.navodila[i].naloge[j].tocke;
+                cbx.id = index + '-' + el.navodila[i].sklop + '-' + j;
+                cbx.sklop = (index + 1) + '.' + el.navodila[i].sklop;
+                cbx.onchange = oceniOddajo;
+                let tocke = 'točke';
+                switch(el.navodila[i].naloge[j].tocke % 10){
+                    case 0: tocke = 'točk'; break;
+                    case 1: tocke = 'točka'; break;
+                    case 2: tocke = 'točki'; break;
+                }
+                label.appendChild(document.createTextNode(' ' + el.navodila[i].naloge[j].tocke + ' ' + tocke));
+                cE('span', el.navodila[i].naloge[j].besedilo , '', li);
+            }
+
+            if (el.navodila[i].opomba)
+                cE('p', el.navodila[i].opomba, 'small', tockeDiv);
+        }
             
         switch(el.tip) {
             case 'prikazi': {
@@ -94,6 +137,14 @@ function izpisiStran() {
                     let a = cE('a', url, '', prikazDiv);
                     a.href = url;
                     a.target = '_blank';
+
+                    let xhttp = new XMLHttpRequest();
+                    xhttp.onload = (ev) => {
+                        console.log(ev.target.responseText);
+                    };
+
+                    xhttp.open('GET', url);
+                    xhttp.send();
                 }
                 else {
                     cE('h5', 'Ne najdem resitve v oddaji', 'text-danger', prikazDiv);
@@ -106,6 +157,7 @@ function izpisiStran() {
             }
         }
 
-        hljs.highlightAll();
     });
+    hljs.highlightAll();
+    oceniOddajo();
 }

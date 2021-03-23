@@ -7,6 +7,7 @@ ic {
 
 pre {
     background-color: #eee;
+    margin-top: 1em !important; 
 }
 
 .tocke {
@@ -19,3 +20,11 @@ pre {
     color: #264d00;
     font-weight: bold;
 } 
+
+.wrap {
+    white-space: pre-wrap;      
+    white-space: -moz-pre-wrap; 
+    white-space: -pre-wrap;     
+    white-space: -o-pre-wrap;   
+    word-wrap: break-word;       
+}
