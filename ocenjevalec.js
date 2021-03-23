@@ -81,8 +81,8 @@ function izpisiStran() {
     vrednotenje.forEach((el, index) => {
         let row = cE('div', '', 'row mt-3 mx-5', naloge);
         cE('hr', '', '', row);
-        let tockeDiv = cE('div', '', 'col-md-6', row);
-        let prikazDiv = cE('div', '', 'col-md-6', row);
+        let tockeDiv = cE('div', '', 'col-md-9', row);
+        let prikazDiv = cE('div', '', 'col-md-3', row);
 
         for (let i = 0; i < el.navodila.length; i++) {
             if (i > 0)
@@ -137,14 +137,6 @@ function izpisiStran() {
                     let a = cE('a', url, '', prikazDiv);
                     a.href = url;
                     a.target = '_blank';
-
-                    let xhttp = new XMLHttpRequest();
-                    xhttp.onload = (ev) => {
-                        console.log(ev.target.responseText);
-                    };
-
-                    xhttp.open('GET', url);
-                    xhttp.send();
                 }
                 else {
                     cE('h5', 'Ne najdem resitve v oddaji', 'text-danger', prikazDiv);
