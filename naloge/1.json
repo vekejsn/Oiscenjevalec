@@ -217,7 +217,99 @@
                 },
                 {
                     "tocke": 1,
-                    "besedilo": "Uveljavitev pripada veji <ic>parki</ic> (izberete zavihek Commits in nato iz spustnega seznama zgoraj vejo <ic>parki</ic> ter preverite, če se uveljavitev pojavi na seznamu).\nMožna rešitev v <ic>turisticni-boni.html</ic>\n<pre class=\"lang-html\"><code>&lt;script src=\"skripte/midpoint-util.js\">&lt;/script>\n&lt;script src=\"skripte/skripta.js\">&lt;/script>\n...\n&lt;input type=\"radio\" id=\"prvi\" name=\"korak\" value=\"osebe\">\n&lt;label for=\"prvi\">Osnovni podatki&lt;/label>\n...\n&lt;input type=\"radio\" id=\"drugi\" name=\"korak\" value=\"parki\">\n&lt;label for=\"drugi\">Interesni parki&lt;/label>\n...\n&lt;input type=\"radio\" id=\"tretji\" name=\"korak\" value=\"hoteli\">\n&lt;label for=\"tretji\">Hoteli&lt;/label></code></pre>"
+                    "besedilo": "Uveljavitev pripada veji <ic>parki</ic> (izberete zavihek Commits in nato iz spustnega seznama zgoraj vejo <ic>parki</ic> ter preverite, če se uveljavitev pojavi na seznamu).\nMožna rešitev v <ic>turisticni-boni.html</ic>\n<pre><code>&lt;script src=\"skripte/midpoint-util.js\">&lt;/script>\n&lt;script src=\"skripte/skripta.js\">&lt;/script>\n...\n&lt;input type=\"radio\" id=\"prvi\" name=\"korak\" value=\"osebe\">\n&lt;label for=\"prvi\">Osnovni podatki&lt;/label>\n...\n&lt;input type=\"radio\" id=\"drugi\" name=\"korak\" value=\"parki\">\n&lt;label for=\"drugi\">Interesni parki&lt;/label>\n...\n&lt;input type=\"radio\" id=\"tretji\" name=\"korak\" value=\"hoteli\">\n&lt;label for=\"tretji\">Hoteli&lt;/label></code></pre>"
+                }
+            ],
+            "opomba": "",
+            "format": "# K #\\s*(.+?)\\s*#",
+            "tip": "commit"
+        },
+        {
+            "naslov": "Ali uveljavitev v GitHub repozitoriju ustreza zahtevam v navodilih?",
+            "navodila": [
+                {
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev prikazuje dodajanje HTML poslušalca <ic>onchange='izberiKorak(this)'</ic> vsem trem HTML elementom <ic>input</ic> z atributom <ic>type=\"radio\"</ic> v datoteki <ic>turisticni-boni.html</ic>.\n<ic>skripta/skripte.js\n<pre><code>&lt;input type=\"radio\" id=\"prvi\" value=\"osebe\" onchange=\"izberiKorak(this)\" checked&gt;\n&lt;input type=\"radio\" id=\"drugi\" value=\"parki\" onchange=\"izberiKorak(this)\"&gt;\n&lt;input type=\"radio\" id=\"tretji\" value=\"hoteli\" onchange=\"izberiKorak(this)\"&gt;</pre></code>"
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": " V metodi <ic>izberiKorak</ic> je implementirana sprememba ozadja vsem ostalim korakom na <ic>transparent</ic> in ozadje trenutnega koraka na vrednost <ic>#f2f2f2</ic>."
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": "V metodi <ic>izberiKorak</ic> je izbirni ukaz <ic>switch-case</ic> drugega pogoja <ic>case</ic> preimenovan iz besede <ic>narava</ic> v besedo <ic>parki</ic>.\n<ic>skripta/skripte.js</ic>\n<pre><code>function izberiKorak(izbirniGumb) {\n// Odstrani ozadja vsem korakom\ndocument.querySelectorAll(\"korak\").forEach((element) =&gt; {\nelement.style.backgroundColor = \"transparent\";\n});\n// Izbranemu koraku dodeli svetlo sivo ozadje\ndocument.getElementById(izbirniGumb.value).style.backgroundColor = \"#f2f2f2\";\nodstraniVseTockeNaZemljevidu();\n// Izvedi akcijo glede na izbran korak\nswitch (izbirniGumb.value) {\ncase \"osebe\":\nomogociOsnovePodatke(true);\nif (radijHotelov) mapa.removeLayer(radijHotelov);\nbreak;\ncase \"narava\":\ncase \"parki\":\nomogociOsnovePodatke(false);\nif (radijHotelov) mapa.removeLayer(radijHotelov);\npridobiPodatke(\"parki\", function (jsonRezultat, vrstaInteresneTocke) {\nparki = jsonRezultat;\nizrisRezultatov(jsonRezultat, vrstaInteresneTocke);\n});\nbreak;\ncase \"hoteli\":\nprikaziHoteleZnotrajRadija();\nbreak;\n}\n}</code></pre>"
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": "Komentar uveljavitve je enak <ic>Dodajanje parkov na zemljevid</ic> (upoštevajte tudi v primeru slovničnih napak)."
+                }
+            ],
+            "opomba": "",
+            "format": "# K #\\s*(.+?)\\s*#",
+            "tip": "commit"
+        },
+        {
+            "naslov": "Ali uveljavitev v GitHub repozitoriju ustreza zahtevam v navodilih?",
+            "navodila": [
+                {
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev prikazuje dodajanje pogoja za maksimalno izbrana 2 parka."
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev prikazuje dodajanje pogoja, ki onemogoča duplikate."
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev prikazuje ustrezno dodano ime parka in njegovo oceno v 1. celico."
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev prikazuje ustrezno dodan gumb za brisanje parka dodan poslušalec 2. stolpcu z ustrezno opredeljenima argumentoma <ic>onclick='odstraniKotKandidata(this, \" + indeks + \")'</ic>\n<ic>skripte/skripta.js</ic>\n<pre><code>function dodajParkMedKandidate(indeks) {\nvar tabelaParkov = document.getElementById(\"tabelaParkov\");\nif (false) {\nif (!kandidatiParkov.includes(indeks) &amp;&amp; kandidatiParkov.length &lt; 2) {\n// Dodaj novo vrstico v seznam parkov\nvar vrstica = tabelaParkov.insertRow(tabelaParkov.rows.length);\n// Dodaj prazni celici (prva je za ime parka in njegovo oceno, druga pa za\n// gumb za odstranjevanje iz seznama)\nvar stolpec1 = vrstica.insertCell(0);\nvar stolpec2 = vrstica.insertCell(1);\nstolpec1.innerHTML = \"\";\nstolpec1.innerHTML =\n\"&lt;strong&gt;\" +\nparki[indeks].lastnosti.ime +\n\"&lt;/strong&gt;\" +\n\" z oceno \" +\n\"&lt;strong&gt;\" +\nparki[indeks].lastnosti.ocena +\n\"&lt;/strong&gt;\" +\n\".\";\nstolpec2.innerHTML = \"\";\nstolpec2.innerHTML =\n\"&lt;button class='rob senca' onclick='odstraniKotKandidata(this, \" +\nindeks +\n\")'&gt;\" +\n\"&lt;i class='far fa-trash-alt'&gt;&lt;/i&gt;&lt;/button&gt;\";\n// Dodaj park na seznam\nkandidatiParkov.push(indeks);\n// Zapri pojavno okno s podrobnostmi parka\nmapa.closePopup();\n}\n}</pre></code>"
+                }
+            ],
+            "opomba": "",
+            "format": "# K #\\s*(.+?)\\s*#",
+            "tip": "commit"
+        },
+        {
+            "naslov": "Ali uveljavitev v GitHub repozitoriju ustreza zahtevam v navodilih?",
+            "navodila": [
+                {
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev prikazuje pravilno preverjanje skupnega zneska turističnega bona in nastavitev ustreznega sporočila (upoštevajte tudi v primeru manjših slovničnih napak, npr. do 3 različni znaki)."
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev prikazuje pravilno preverjanje števila že shranjenih parkov in nastavitev ustreznega sporočila (upoštevajte tudi v primeru manjših slovničnih napak, npr. do 3 različni znaki)."
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev prikazuje združevanje vrednosti spremeljivke <ic>sporocilo</ic> z ukazom <ic>sporocilo += \"sporočilo pogoja\"</ic> ali z ukazom <ic>sporocilo = sporocilo + \"sporočilo pogoja\"</ic> za oba pogoja."
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": " Uveljavitev prikazuje dodajanje pojavnega okna z argumentom <ic>sporocilo</ic>, če je prisotno sporočilo.\nMožna rešitev v skripte/skripta.js\n<pre><code>function preveriPogojeSklopaHoteli(callback) {\nvar sporocilo = \"\";\nif (parseInt(document.getElementsByClassName(\"vsota\")[0].innerHTML) == 0)\nsporocilo += \"Skupni znesek v osnovnih podatkih mora biti več kot 0 €!\";\nif (kandidatiParkov.length &lt; 2)\nsporocilo += (sporocilo ? \" \" : \"\") + \"Izbrati je potrebno 2 parka!\";\nif (!sporocilo) {\ncallback();\n} else {\nalert(sporocilo);\n}\nomogociHotele(!sporocilo);\nreturn;\n}</pre></code>"
+                },
+                {
+                    "tocke": 2,
+                    "besedilo": "Uveljavitev prikazuje pravilno uporabo funkcije <ic>middlePoint</ic>, ki prejme vhodne podatke točke obeh parkov in sicer zemljepisna širina prvega parka, zemljepisna dolžina prvega parka, zemljepisna širina drugega parka, zemljepisna širina drugega parka (vrstni red parkov je lahko tudi zamenjan)."
+                },
+                {
+                    "tocke": 4,
+                    "besedilo": "Uveljavitev prikazuje pravilno uporabo funkcije <ic>L.circle</ic> s podano tabelo zemljepisnih točk spremenljivke srednja točka kot prvi argument <ic>[srednjaTocka[1], srednjaTocka[0]]</ic> (+1 točka) ter uporabo atributov z vrednostmi <ic>color: 'transparent'</ic>, (+1 točka) <ic>fillColor: 'red'</ic> (+1 točka) in <ic>radius</ic> z vrednostjo vnosnega polja z enoličnim identifikatorjem <ic>radij</ic> pretvorjen v metre (pomnožen s <ic>1000</ic>) (+1 točka)."
+                },
+                {
+                    "tocke": 3,
+                    "besedilo": "Uveljavitev prikazuje pravilno uporabo funkcije <ic>izracunajVseHoteleVRadiju()</ic>, ki prejme argumente zemljepisno širino sredinske točke (<ic>srednjaTocka[1]</ic>) kot prvi argument (+1 točka), zemljepisno dolžino sredinske točke (<ic>srednjaTocka[0]</ic>) kot drugi argument (+1 točka) in vrednost vnosnega polja z enoličnim identifikatorjem <ic>radij</ic> (+1 točka). Možna rešitev v <ic>skripte/skripta.js</ic><pre><code>function prikaziHoteleZnotrajRadija() {\nomogociOsnovePodatke(false);\n// Preveri pogoje: izbrana 2 parka in vsota v osnovnih podatkih večjo od 0\npreveriPogojeSklopaHoteli(function () {\nvar srednjaTocka = -1;\nvar srednjaTocka = middlePoint(\nparki[kandidatiParkov[0]].koordinate.lat,\nparki[kandidatiParkov[0]].koordinate.lng,\nparki[kandidatiParkov[1]].koordinate.lat,\nparki[kandidatiParkov[1]].koordinate.lng\n);\n// Prikaži hotele glede na radij\npridobiPodatke(\"hoteli\", function (jsonRezultat, vrstaInteresneTocke) {\nhoteli = jsonRezultat;\n// Izbriši radij, če je obstajal od prej\nif (radijHotelov) mapa.removeLayer(radijHotelov);\nodstraniVseTockeNaZemljevidu();\n// Nariši radij (rdeč krog v središčni točki med izbranima parkoma)\nradijHotelov = undefined;\nradijHotelov = L.circle([srednjaTocka[1], srednjaTocka[0]], {\ncolor: \"transparent\",\nfillColor: \"red\",\nradius: parseInt(document.getElementById(\"radij\").value) * 1000,\n}).addTo(mapa);\n// Poišči vse hotele znotraj radija\nizracunajVseHoteleVRadiju(\nsrednjaTocka[1],\nsrednjaTocka[0],\ndocument.getElementById(\"radij\").value\n);\n// Nariši ujemajoče hotele na zemljevidu\nizrisRezultatov(kandidatiHotelov, vrstaInteresneTocke);\n});\n});\n}</code></pre>"
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": "Komentar uveljavitve je enak <ic>Pogoji hotelov</ic> (upoštevajte tudi v primeru manjših slovničnih napak)."
+                },
+                {
+                    "tocke": 1,
+                    "besedilo": "Uveljavitev pripada veji <ic>hoteli</ic> (izberete zavihek Commits in nato iz spustnega seznama zgoraj vejo <ic>hoteli</ic> ter preverite, če se uveljavitev pojavi na seznamu)."
                 }
             ],
             "opomba": "",
