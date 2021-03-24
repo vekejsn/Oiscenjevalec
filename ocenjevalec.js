@@ -84,6 +84,16 @@ function oceniOddajo() {
         obvestilo.innerHTML = 'Kopirano v odložišče';
     };
     ta.rows = 3;
+    cE('p','Oblikovani komentarji - prilepi v okno za komentarje na strani za vrednotenje oddaje', 'lead', ocena);
+    let obvestilo_komentarji = cE('h4', '' , 'badge bg-secondary', ocena);
+    let komentarji = cE('textarea', '', 'mb-5 w-100', ocena);
+    komentarji.id = 'komentarji-vsi';
+    komentarji.onclick = (el) => {
+        el.target.select();
+        document.execCommand("copy");
+        obvestilo_komentarji.innerHTML = 'Kopirano v odložišče';
+    };
+    komentarji.innerHTML = vrniKomentarje();
 }
 
 let linkRepoz = "";
@@ -144,6 +154,14 @@ function izpisiStran() {
                 }
                 label.appendChild(document.createTextNode(' ' + el.navodila[i].naloge[j].tocke + ' ' + tocke));
                 cE('span', el.navodila[i].naloge[j].besedilo , '', li);
+            }
+            {
+                let komentarji_label = cE('label', 'Komentar(ji) na korak:<br>' , '', ol);
+                komentarji_label.for = "textarea";
+                let komentarji = cE('textarea', '', 'form-control',komentarji_label)
+                komentarji.id = el.navodila[i].sklop + "-komentar";
+                komentarji.style = "width: 40vw; resize: none;";
+                komentarji.onchange = function() {oceniOddajo()};
             }
 
             if (el.navodila[i].opomba)
@@ -231,4 +249,15 @@ function izpisiStran() {
     let a = cE('a', 'Ocena', 'nav-link', nav);
     a.href = '#ocena';
     oceniOddajo();
+}
+
+function vrniKomentarje() {
+    var komentarji = document.querySelectorAll('[id*="komentar"]');
+    var vsi_komentarji = "";
+    for (var i = 0; i < komentarji.length; i++) {
+        if (komentarji[i].value.length>0) {
+            vsi_komentarji += "# " + komentarji[i].id.split("-")[0] + " # " + komentarji[i].value + " #\n";
+        }
+    }
+    document.getElementById('komentarji-vsi').value = vsi_komentarji;
 }
