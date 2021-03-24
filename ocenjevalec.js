@@ -56,6 +56,10 @@ function oceniOddajo() {
         else
             vsota[el.sklop] = value;
     });
+
+    Array.from(document.querySelectorAll('input[type="number"]')).forEach( (el) => {
+        vsota[el.sklop] += parseInt(el.value);
+    });
     
     let skupaj = 0;
 
@@ -108,8 +112,20 @@ function izpisiStran() {
                 let label = cE('label', '' , 'tocke mx-2', li);
                 label.for = index + '-' + el.navodila[i].sklop + '-' + j;
                 let cbx = cE('input', '', '', label);
-                cbx.type = 'checkbox';
-                cbx.value = el.navodila[i].naloge[j].tocke;
+
+                if(el.navodila[i].naloge[j].tocke == 1){
+                    cbx.type = 'checkbox';
+                    cbx.value = el.navodila[i].naloge[j].tocke; }
+                else{
+                    cbx.type = 'number';
+                    cbx.max = el.navodila[i].naloge[j].tocke;
+                    cbx.min = cbx.value = 0;
+                    cbx.style.width = "2em";
+                    cbx.onclick = (ev) =>  event.stopPropagation();
+                    label.onclick = function(){
+                        cbx.value = el.navodila[i].naloge[j].tocke;
+                    }
+                }
                 cbx.id = index + '-' + el.navodila[i].sklop + '-' + j;
                 cbx.sklop = (index + 1) + '.' + el.navodila[i].sklop;
                 cbx.onchange = oceniOddajo;
