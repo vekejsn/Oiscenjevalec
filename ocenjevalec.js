@@ -120,6 +120,11 @@ function izpisiStran() {
                     cbx.type = 'number';
                     cbx.max = el.navodila[i].naloge[j].tocke;
                     cbx.min = cbx.value = 0;
+                    cbx.style.width = "2em";
+                    cbx.onclick = (ev) =>  event.stopPropagation();
+                    label.onclick = function(){
+                        cbx.value = el.navodila[i].naloge[j].tocke;
+                    }
                 }
                 cbx.id = index + '-' + el.navodila[i].sklop + '-' + j;
                 cbx.sklop = (index + 1) + '.' + el.navodila[i].sklop;
