@@ -44,7 +44,7 @@ function napaka(besedilo) {
 function oceniOddajo() {
     let ocena = document.getElementById('ocena');
     ocena.innerHTML = '';
-    let tbl = cE('table', '<thead><tr><th scope="col">Sklop</th><th scope="col">Tocke</th></tr></thead>', 'table mb-5', ocena);
+    let tbl = cE('table', '<thead><tr><th scope="col">Sklop</th><th scope="col">Točke</th></tr></thead>', 'table mb-5', ocena);
     let body = cE('tbody', '', '', tbl);
 
     let vsota = {};
@@ -65,14 +65,21 @@ function oceniOddajo() {
         cE('td', sklop, '', tr);
         cE('td', (vsota[sklop]) ? vsota[sklop] : '0', '', tr);
         skupaj += vsota[sklop];
-        celice.push(offsets[sklop] + vsota[sklop]);
+        celice.push('"' + offsets[sklop][vsota[sklop]] + '"');
     });
     let tr = cE('tr', '', '', body);
     cE('th', 'Skupaj', '', tr);
     cE('th', skupaj, '', tr);
 
     cE('p','Hitri vnos v Moodle - prilepi v konzolo na strani za vrednotenje oddaje', 'lead', ocena);
-    cE('pre', '[' + celice.join(',') + '].forEach((i,ii)=>{document.getElementById("id_chosenlevelid__idx_"+ii+"_"+i).checked=true;});', 'wrap mb-5', ocena);
+    let obvestilo = cE('h4', '', 'badge bg-secondary', ocena);
+    let ta = cE('textarea', '[' + celice.join(',') + '].forEach((i)=>{document.getElementById("id_chosenlevelid__idx_"+i).checked=true;});', 'mb-5 w-100', ocena);
+    ta.onclick = (el) => {
+        el.target.select();
+        document.execCommand("copy");
+        obvestilo.innerHTML = 'Kopirano v odložišče';
+    };
+    ta.rows = 3;
 }
 
 function izpisiStran() {
@@ -130,7 +137,7 @@ function izpisiStran() {
 
                 }
                 else {
-                    cE('h5', 'Ne najdem resitve v oddaji', 'text-danger', prikazDiv);
+                    cE('h5', 'Ne najdem rešitve v oddaji', 'text-danger', prikazDiv);
                 }
                 break;
             }
@@ -167,7 +174,7 @@ function izpisiStran() {
                     xhttp.send();
                 }
                 else {
-                    cE('h5', 'Ne najdem resitve v oddaji', 'text-danger', prikazDiv);
+                    cE('h5', 'Ne najdem rešitve v oddaji', 'text-danger', prikazDiv);
                 }
                 break;
             }
@@ -180,7 +187,7 @@ function izpisiStran() {
                     let cardBody = cE('div', '', 'card-body', card);
                     cE('ic', 'git clone ' + url, 'card-text', cardBody);
                 } else {
-                    cE('h5', 'Ne najdem resitve v oddaji', 'text-danger', prikazDiv);
+                    cE('h5', 'Ne najdem rešitve v oddaji', 'text-danger', prikazDiv);
                 }
                 break;
             }
