@@ -122,7 +122,13 @@ function izpisiStran() {
                     cbx.min = cbx.value = 0;
                     cbx.style.width = "2em";
                     cbx.onclick = (ev) =>  event.stopPropagation();
-                    label.onclick = function(){
+                    cbx.oninput = () => {
+                        if(cbx.value > cbx.max)
+                            cbx.value = cbx.max;
+                        else if(cbx.value < cbx.min)
+                            cbx.value = cbx.min;
+                    }
+                    label.onclick = () => {
                         cbx.value = el.navodila[i].naloge[j].tocke;
                     }
                 }
