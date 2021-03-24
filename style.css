@@ -5,9 +5,26 @@ ic {
     border-radius: 0.2em;
 }
 
+hl {
+    background-color: #d9ffb3;
+    color: #264d00;
+}
+
+del {
+    background: #fff2e6;
+    text-decoration: line-through;
+}
+
 pre {
     background-color: #eee;
     margin-top: 1em !important; 
+    max-height: 50em;
+}
+
+nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .tocke {
@@ -30,5 +47,5 @@ pre {
 }
 
 tr:nth-child(even){
-    background-color: #8bb4f7;
+    background-color: rgb(248, 248, 248);
 }

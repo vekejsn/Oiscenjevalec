@@ -44,7 +44,7 @@ function napaka(besedilo) {
 function oceniOddajo() {
     let ocena = document.getElementById('ocena');
     ocena.innerHTML = '';
-    let tbl = cE('table', '<thead><tr><th scope="col">Sklop</th><th scope="col">Tocke</th></tr></thead>', 'table mb-5', ocena);
+    let tbl = cE('table', '<thead><tr><th scope="col">Sklop</th><th scope="col">Točke</th></tr></thead>', 'table mb-5', ocena);
     let body = cE('tbody', '', '', tbl);
 
     let vsota = {};
@@ -65,26 +65,35 @@ function oceniOddajo() {
         cE('td', sklop, '', tr);
         cE('td', (vsota[sklop]) ? vsota[sklop] : '0', '', tr);
         skupaj += vsota[sklop];
-        celice.push(offsets[sklop] + vsota[sklop]);
+        celice.push('"' + offsets[sklop][vsota[sklop]] + '"');
     });
     let tr = cE('tr', '', '', body);
     cE('th', 'Skupaj', '', tr);
     cE('th', skupaj, '', tr);
 
     cE('p','Hitri vnos v Moodle - prilepi v konzolo na strani za vrednotenje oddaje', 'lead', ocena);
-    cE('pre', '[' + celice.join(',') + '].forEach((i,ii)=>{document.getElementById("id_chosenlevelid__idx_"+ii+"_"+i).checked=true;});', 'wrap mb-5', ocena);
+    let obvestilo = cE('h4', '', 'badge bg-secondary', ocena);
+    let ta = cE('textarea', '[' + celice.join(',') + '].forEach((i)=>{document.getElementById("id_chosenlevelid__idx_"+i).checked=true;});', 'mb-5 w-100', ocena);
+    ta.onclick = (el) => {
+        el.target.select();
+        document.execCommand("copy");
+        obvestilo.innerHTML = 'Kopirano v odložišče';
+    };
+    ta.rows = 3;
 }
 
 let linkRepoz = "";
 
 function izpisiStran() {
     let naloge = document.getElementById('naloge');
+    let nav = document.getElementById('navigacija');
     naloge.innerHTML = '';
+    nav.innerHTML = '';
     vrednotenje.forEach((el, index) => {
         let row = cE('div', '', 'row mt-3 mx-5', naloge);
         cE('hr', '', '', row);
-        let tockeDiv = cE('div', '', 'col-md-9', row);
-        let prikazDiv = cE('div', '', 'col-md-3', row);
+        let tockeDiv = cE('div', '', 'col-md-6', row);
+        let prikazDiv = cE('div', '', 'col-md-6', row);
 
         for (let i = 0; i < el.navodila.length; i++) {
             if (i > 0)
@@ -124,10 +133,13 @@ function izpisiStran() {
                 let resitev = rexp.exec(oddaja);
                 if (resitev && resitev.length == 2) {
                     resitev = resitev[1];
-                    cE('pre', resitev, '', prikazDiv);
+                    let card = cE('div', '', 'card mx-auto', prikazDiv);
+                    let cardBody = cE('div', '', 'card-body', card);
+                    cE('pre', '<code>' + resitev + '</code>', 'card-text', cardBody);
+
                 }
                 else {
-                    cE('h5', 'Ne najdem resitve v oddaji', 'text-danger', prikazDiv);
+                    cE('h5', 'Ne najdem rešitve v oddaji', 'text-danger', prikazDiv);
                 }
                 break;
             }
@@ -137,15 +149,48 @@ function izpisiStran() {
                 let url = rexp.exec(oddaja);
                 if (url && url.length == 2) {
                     url = url[1];
-                    let a = cE('a', url, '', prikazDiv);
-                    a.href = url;
-                    a.target = '_blank';
-                    if(index == 15){
-                        cE('pre', "git clone " + url, '', prikazDiv);
-                    }
+                    let xhttp = new XMLHttpRequest();
+                    xhttp.onload = (ev) => {
+                        let commit = JSON.parse(ev.target.responseText);
+                        let card = cE('div', '', 'card mx-auto', prikazDiv);
+                        let cardBody = cE('div', '', 'card-body', card);
+                        cE('h5', '<a class="link-dark" href="' + url + '">' + commit.commit.message + '</a>', 'card-title', cardBody);
+                        cE('h6', '<span class="text-success">+' + commit.stats.additions + " </span>" +
+                                 '<span class="text-danger"> -' + commit.stats.deletions + "</span>",
+                            'card-subtitle', cardBody);
+                        
+                        commit.files.forEach( (file) => {
+                            let filecard = cE('div', '', 'card mx-auto', cardBody);
+                            let filecardBody = cE('div', '', 'card-body', filecard);
+                            cE('h6', '<a class="link-dark" href="' + file.blob_url + '">' + file.filename + '</a>', 'card-title', filecardBody);
+                            cE('h6', '<span class="text-success">+' + file.additions + " </span>" +
+                                    '<span class="text-danger"> -' + file.deletions + " </span>" + 
+                                    '<span class="text-secondary">' + file.status + "</span>",
+                                'card-subtitle', filecardBody);
+                            let pre = cE('pre', '<code class="language-diff hljs">' + file.patch.replaceAll('<', '&lt;') + '</code>', 'card-text', filecardBody);
+                            hljs.highlightElement(pre.firstChild);
+                        });
+
+                    };
+
+                    xhttp.open('GET', 'git.php?dst=' + url);
+                    xhttp.send();
                 }
                 else {
-                    cE('h5', 'Ne najdem resitve v oddaji', 'text-danger', prikazDiv);
+                    cE('h5', 'Ne najdem rešitve v oddaji', 'text-danger', prikazDiv);
+                }
+                break;
+            }
+            case 'prenesi' : {
+                let rexp = new RegExp(el.format, 's');
+                let url = rexp.exec(oddaja);
+                if (url && url.length == 2) {
+                    url = url[1];
+                    let card = cE('div', '', 'card mx-auto', prikazDiv);
+                    let cardBody = cE('div', '', 'card-body', card);
+                    cE('ic', 'git clone ' + url, 'card-text', cardBody);
+                } else {
+                    cE('h5', 'Ne najdem rešitve v oddaji', 'text-danger', prikazDiv);
                 }
                 break;
             }
@@ -155,7 +200,12 @@ function izpisiStran() {
             }
         }
 
+        row.id = 'naloga-' + (index + 1);
+        let a = cE('a', index + 1, 'nav-link', nav);
+        a.href = '#naloga-' + (index + 1);
     });
     hljs.highlightAll();
+    let a = cE('a', 'Ocena', 'nav-link', nav);
+    a.href = '#ocena';
     oceniOddajo();
 }

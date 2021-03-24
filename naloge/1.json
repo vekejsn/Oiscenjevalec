@@ -71,7 +71,7 @@
                         },
                         {
                             "tocke": 1,
-                            "besedilo": "Uveljavitev prikazuje dodajanje CSS lastnosti <ic>html</ic> in <ic>body</ic> v datoteki <ic>stili.css</ic> iz stilov elementov &lt;html> in &lt;body> s spletne strani <ic>turisticni-boni.html</ic>.\n<ic>css/stili.css</ic>\n<pre class=\"lang-css\"><code>html, body {\nheight: 100%;\nwidth: 100%;\npadding: 0;\nmargin: 0 0 0 0;\ndisplay: flex;\n}</code></pre>"
+                            "besedilo": "Uveljavitev prikazuje dodajanje CSS lastnosti <ic>html</ic> in <ic>body</ic> v datoteki <ic>stili.css</ic> iz stilov elementov &lt;html> in &lt;body> s spletne strani <ic>turisticni-boni.html</ic>.\n<ic>css/stili.css</ic>\n<pre class=\"lang-css\"><code><hl>html, body {\n  height: 100%;\n  width: 100%;\n  padding: 0;\n  margin: 0 0 0 0;\n  display: flex;\n}</hl></code></pre>"
                         },
                         {
                             "tocke": 1,
@@ -104,7 +104,7 @@
                         },
                         {
                             "tocke": 1,
-                            "besedilo": "Komentar uveljavitve je enak <ic>Sprememba vnosnega polja</ic> (upoštevajte tudi v primeru manjših slovničnih napak, npr. do 3 različni znaki).\nMožna rešitev v <ic>turisticni-boni.html</ic>\n<pre class=\"lang-css\"><code>input[type=\"number\"]:focus {\nbackground-color: #fde7ea;\ncolor: #a80b1d;\nfont-weight: bold;\n}</code></pre>"
+                            "besedilo": "Komentar uveljavitve je enak <ic>Sprememba vnosnega polja</ic> (upoštevajte tudi v primeru manjših slovničnih napak, npr. do 3 različni znaki).\nMožna rešitev v <ic>turisticni-boni.html</ic>\n<pre class=\"lang-css\"><code><hl>input[type=\"number\"]:focus {\n  background-color: #fde7ea;\n  color: #a80b1d;\n  font-weight: bold;\n}</hl></code></pre>"
                         }
                     ],
                     "opomba": ""
@@ -129,7 +129,7 @@
                         },
                         {
                             "tocke": 1,
-                            "besedilo": "Komentar uveljavitve je enak <ic>Dodajanje gumba za hotel</ic> (upoštevajte tudi v primeru manjših slovničnih napak, npr. do 3 različni znaki).\nMožna rešitev v <ic>turisticni-boni.html></ic>\n<pre class=\"lang-html\"><code>&lt;input type=\"button\" id=\"najblizjiHotel\" style=\"margin-left:30px\" value=\"Najbližji hotel\"/></code></pre>"
+                            "besedilo": "Komentar uveljavitve je enak <ic>Dodajanje gumba za hotel</ic> (upoštevajte tudi v primeru manjših slovničnih napak, npr. do 3 različni znaki).\nMožna rešitev v <ic>turisticni-boni.html></ic>\n<pre class=\"lang-html\"><code><hl>&lt;input type=\"button\" id=\"najblizjiHotel\" style=\"margin-left:30px\" value=\"Najbližji hotel\" /></hl></code></pre>"
                         }
                     ],
                     "opomba": ""
@@ -187,7 +187,7 @@
                         },
                         {
                             "tocke": 1,
-                            "besedilo": "Komentar uveljavitve je enak <ic>Prevetritev tabele</ic> (upoštevajte tudi v primeru manjših slovničnih napak, npr. do 3 različni znaki).\nMožna rešitev v <ic>css/stili.css</ic>.\n<pre class=\"lang-css\"><code>#tabelaParkov {\nborder-spacing:0 5px;\nwidth: 100%;\nfont-size: 90%;\n}\n#tabelaParkov th,\n#tabelaParkov td {\nborder: 0px;\nvertical-align: top;\ntext-align: left;\npadding-right: 10px;\n}</code></pre>"
+                            "besedilo": "Komentar uveljavitve je enak <ic>Prevetritev tabele</ic> (upoštevajte tudi v primeru manjših slovničnih napak, npr. do 3 različni znaki).\nMožna rešitev v <ic>css/stili.css</ic>.\n<pre class=\"lang-css\"><code>#tabelaParkov {\n  border-spacing:0 5px;\n  <hl>width: 100%;</hl>\n  <hl>font-size: 90%;</hl>\n}\n\n#tabelaParkov th,\n#tabelaParkov td {\n  border: 0px;\n  <hl>vertical-align: top;</hl>\n  <hl>text-align: left;</hl>\n  <hl>padding-right: 10px;</hl>\n}  </code></pre>"
                         }
                     ],
                     "opomba": ""
@@ -216,7 +216,7 @@
                         },
                         {
                             "tocke": 1,
-                            "besedilo": "Komentar uveljavitve je enak <ic>Stilski osnovni podatki</ic> (upoštevajte tudi v primeru manjših slovničnih napak, npr. do 3 različni znaki).\nMožna rešitev v <ic>turisticni-boni.html</ic> in <ic>css/stili.css.</ic>\n<ic>turisticni-boni.html</ic>\n<pre class=\"lang-html\"><code>&lt;input id=\"odrasli\" class=\"senca rob\" type=\"number\" min=\"0\" max=\"100\" value=\"2\" width=\"30%\" />\nx&lt;i class=\"fas fa-male\">&lt;/i>odrasli\n&lt;br />\n&lt;input id=\"otroci\" class=\"senca rob\" type=\"number\" min=\"0\" max=\"100\" value=\"1\" width=\"30%\" />\nx&lt;i class=\"fas fa-baby\">&lt;/i>otrok\n&lt;br />\n&lt;input id=\"nocitev\" class=\"senca rob\" type=\"number\" min=\"1\" max=\"100\" value=\"3\" width=\"30%\" />\nx&lt;i class=\"fas fa-bed\">&lt;/i>nočitev\n&lt;br />\n&lt;div id=\"izracun\" style=\"margin-top: 10px\" class=\"desno\">\n&lt;label>Bon skupaj za: &lt;i class=\"fas fa-money-bill-wave\">&lt;/i>&lt;/label>\n&lt;label class=\"vsota\">...&lt;/label> €\n&lt;/div></code></pre>\n<ic>css/stili.css</ic>\n<pre class=\"lang-css\"><code>.desno {\ntext-align: right;\nfont-family: \"Arial Narrow\";\ncolor: indianred;\nmargin-right: 4px;\n}</code></pre>"
+                            "besedilo": "Komentar uveljavitve je enak <ic>Stilski osnovni podatki</ic> (upoštevajte tudi v primeru manjših slovničnih napak, npr. do 3 različni znaki).\nMožna rešitev v <ic>turisticni-boni.html</ic> in <ic>css/stili.css.</ic>\n<ic>turisticni-boni.html</ic>\n<pre class=\"lang-html\"><code>&lt;input id=\"odrasli\" class=\"senca rob\" type=\"number\" min=\"0\" max=\"100\" value=\"2\" width=\"30%\" />\nx<hl>&lt;i class=\"fas fa-male\">&lt;/i></hl>odrasli\n&lt;br />\n&lt;input id=\"otroci\" class=\"senca rob\" type=\"number\" min=\"0\" max=\"100\" value=\"1\" width=\"30%\" />\nx<hl>&lt;i class=\"fas fa-baby\">&lt;/i></hl>otrok\n&lt;br />\n&lt;input id=\"nocitev\" class=\"senca rob\" type=\"number\" min=\"1\" max=\"100\" value=\"3\" width=\"30%\" />\nx<hl>&lt;i class=\"fas fa-bed\">&lt;/i></hl>nočitev\n&lt;br />\n&lt;div id=\"izracun\" style=\"margin-top: 10px\" <hl>class=\"desno\"</hl>>\n  &lt;label>Bon skupaj za: <hl>&lt;i class=\"fas fa-money-bill-wave\">&lt;/i></hl>&lt;/label>\n  &lt;label class=\"vsota\">...&lt;/label> €\n&lt;/div></code></pre>\n<ic>css/stili.css</ic>\n<pre class=\"lang-css\"><code><hl>.desno {\n  text-align: right;\n  font-family: \"Arial Narrow\";\n  color: indianred;\n  margin-right: 4px;\n}</hl></code></pre>"
                         }
                     ],
                     "opomba": ""
@@ -270,7 +270,7 @@
                         },
                         {
                             "tocke": 1,
-                            "besedilo": "Uveljavitev pripada veji <ic>parki</ic> (izberete zavihek Commits in nato iz spustnega seznama zgoraj vejo <ic>parki</ic> ter preverite, če se uveljavitev pojavi na seznamu).\nMožna rešitev v <ic>turisticni-boni.html</ic>\n<pre><code>&lt;script src=\"skripte/midpoint-util.js\">&lt;/script>\n&lt;script src=\"skripte/skripta.js\">&lt;/script>\n...\n&lt;input type=\"radio\" id=\"prvi\" name=\"korak\" value=\"osebe\">\n&lt;label for=\"prvi\">Osnovni podatki&lt;/label>\n...\n&lt;input type=\"radio\" id=\"drugi\" name=\"korak\" value=\"parki\">\n&lt;label for=\"drugi\">Interesni parki&lt;/label>\n...\n&lt;input type=\"radio\" id=\"tretji\" name=\"korak\" value=\"hoteli\">\n&lt;label for=\"tretji\">Hoteli&lt;/label></code></pre>"
+                            "besedilo": "Uveljavitev pripada veji <ic>parki</ic> (izberete zavihek Commits in nato iz spustnega seznama zgoraj vejo <ic>parki</ic> ter preverite, če se uveljavitev pojavi na seznamu).\nMožna rešitev v <ic>turisticni-boni.html</ic>\n<pre><code><hl>&lt;script src=\"skripte/midpoint-util.js\">&lt;/script></hl>\n<hl>&lt;script src=\"skripte/skripta.js\">&lt;/script></hl>\n...\n&lt;input type=\"radio\" id=\"prvi\" <hl>name=\"korak\"</hl> value=\"osebe\">\n&lt;label for=\"prvi\">Osnovni podatki&lt;/label>\n...\n&lt;input type=\"radio\" id=\"drugi\" <hl>name=\"korak\"</hl> value=\"parki\">\n&lt;label for=\"drugi\">Interesni parki&lt;/label>\n...\n&lt;input type=\"radio\" id=\"tretji\" <hl>name=\"korak\"</hl> value=\"hoteli\">\n&lt;label for=\"tretji\">Hoteli&lt;/label></code></pre>"
                         }
                     ],
                     "opomba": ""
@@ -287,7 +287,7 @@
                     "naloge" : [
                         {
                             "tocke": 1,
-                            "besedilo": "Uveljavitev prikazuje dodajanje HTML poslušalca <ic>onchange='izberiKorak(this)'</ic> vsem trem HTML elementom <ic>input</ic> z atributom <ic>type=\"radio\"</ic> v datoteki <ic>turisticni-boni.html</ic>.\n<ic>skripta/skripte.js</ic>\n<pre><code>&lt;input type=\"radio\" id=\"prvi\" value=\"osebe\" onchange=\"izberiKorak(this)\" checked&gt;\n&lt;input type=\"radio\" id=\"drugi\" value=\"parki\" onchange=\"izberiKorak(this)\"&gt;\n&lt;input type=\"radio\" id=\"tretji\" value=\"hoteli\" onchange=\"izberiKorak(this)\"&gt;</pre></code>"
+                            "besedilo": "Uveljavitev prikazuje dodajanje HTML poslušalca <ic>onchange='izberiKorak(this)'</ic> vsem trem HTML elementom <ic>input</ic> z atributom <ic>type=\"radio\"</ic> v datoteki <ic>turisticni-boni.html</ic>.\n<ic>skripta/skripte.js</ic>\n<pre><code class=\"language-html\">&lt;input type=\"radio\" id=\"prvi\" value=\"osebe\" <hl>onchange=\"izberiKorak(this)\"</hl> checked>\n&lt;input type=\"radio\" id=\"drugi\" value=\"parki\" <hl>onchange=\"izberiKorak(this)\"</hl>>\n&lt;input type=\"radio\" id=\"tretji\" value=\"hoteli\" <hl>onchange=\"izberiKorak(this)\"</hl>></code></pre>"
                         },
                         {
                             "tocke": 1,
@@ -295,7 +295,7 @@
                         },
                         {
                             "tocke": 1,
-                            "besedilo": "V metodi <ic>izberiKorak</ic> je izbirni ukaz <ic>switch-case</ic> drugega pogoja <ic>case</ic> preimenovan iz besede <ic>narava</ic> v besedo <ic>parki</ic>.\n<ic>skripta/skripte.js</ic>\n<pre><code>function izberiKorak(izbirniGumb) {\n// Odstrani ozadja vsem korakom\ndocument.querySelectorAll(\"korak\").forEach((element) =&gt; {\nelement.style.backgroundColor = \"transparent\";\n});\n// Izbranemu koraku dodeli svetlo sivo ozadje\ndocument.getElementById(izbirniGumb.value).style.backgroundColor = \"#f2f2f2\";\nodstraniVseTockeNaZemljevidu();\n// Izvedi akcijo glede na izbran korak\nswitch (izbirniGumb.value) {\ncase \"osebe\":\nomogociOsnovePodatke(true);\nif (radijHotelov) mapa.removeLayer(radijHotelov);\nbreak;\ncase \"narava\":\ncase \"parki\":\nomogociOsnovePodatke(false);\nif (radijHotelov) mapa.removeLayer(radijHotelov);\npridobiPodatke(\"parki\", function (jsonRezultat, vrstaInteresneTocke) {\nparki = jsonRezultat;\nizrisRezultatov(jsonRezultat, vrstaInteresneTocke);\n});\nbreak;\ncase \"hoteli\":\nprikaziHoteleZnotrajRadija();\nbreak;\n}\n}</code></pre>"
+                            "besedilo": "V metodi <ic>izberiKorak</ic> je izbirni ukaz <ic>switch-case</ic> drugega pogoja <ic>case</ic> preimenovan iz besede <ic>narava</ic> v besedo <ic>parki</ic>.\n<ic>skripta/skripte.js</ic>\n<pre><code class=\"language-javascript\">function izberiKorak(izbirniGumb) {\n<hl>  // Odstrani ozadja vsem korakom\n  document.querySelectorAll(\"korak\").forEach((element) => {\n    element.style.backgroundColor = \"transparent\";\n  });</hl>\n\n<hl>  // Izbranemu koraku dodeli svetlo sivo ozadje\n  document.getElementById(izbirniGumb.value).style.backgroundColor = \"#f2f2f2\";</hl>\n\n  odstraniVseTockeNaZemljevidu();\n\n  // Izvedi akcijo glede na izbran korak\n  switch (izbirniGumb.value) {\n    case \"osebe\":\n      omogociOsnovePodatke(true);\n      if (radijHotelov) mapa.removeLayer(radijHotelov);\n      break;\n    <del>case \"narava\":</del>\n    <hl>case \"parki\":</hl>\n      omogociOsnovePodatke(false);\n      if (radijHotelov) mapa.removeLayer(radijHotelov);\n      pridobiPodatke(\"parki\", function (jsonRezultat, vrstaInteresneTocke) {\n        parki = jsonRezultat;\n        izrisRezultatov(jsonRezultat, vrstaInteresneTocke);\n      });\n      break;\n    case \"hoteli\":\n      prikaziHoteleZnotrajRadija();\n      break;\n  }\n}</code></pre>"
                         },
                         {
                             "tocke": 1,
@@ -328,7 +328,7 @@
                         },
                         {
                             "tocke": 1,
-                            "besedilo": "Uveljavitev prikazuje ustrezno dodan gumb za brisanje parka dodan poslušalec 2. stolpcu z ustrezno opredeljenima argumentoma <ic>onclick='odstraniKotKandidata(this, \" + indeks + \")'</ic>\n<ic>skripte/skripta.js</ic>\n<pre><code>function dodajParkMedKandidate(indeks) {\nvar tabelaParkov = document.getElementById(\"tabelaParkov\");\nif (false) {\nif (!kandidatiParkov.includes(indeks) &amp;&amp; kandidatiParkov.length &lt; 2) {\n// Dodaj novo vrstico v seznam parkov\nvar vrstica = tabelaParkov.insertRow(tabelaParkov.rows.length);\n// Dodaj prazni celici (prva je za ime parka in njegovo oceno, druga pa za\n// gumb za odstranjevanje iz seznama)\nvar stolpec1 = vrstica.insertCell(0);\nvar stolpec2 = vrstica.insertCell(1);\nstolpec1.innerHTML = \"\";\nstolpec1.innerHTML =\n\"&lt;strong&gt;\" +\nparki[indeks].lastnosti.ime +\n\"&lt;/strong&gt;\" +\n\" z oceno \" +\n\"&lt;strong&gt;\" +\nparki[indeks].lastnosti.ocena +\n\"&lt;/strong&gt;\" +\n\".\";\nstolpec2.innerHTML = \"\";\nstolpec2.innerHTML =\n\"&lt;button class='rob senca' onclick='odstraniKotKandidata(this, \" +\nindeks +\n\")'&gt;\" +\n\"&lt;i class='far fa-trash-alt'&gt;&lt;/i&gt;&lt;/button&gt;\";\n// Dodaj park na seznam\nkandidatiParkov.push(indeks);\n// Zapri pojavno okno s podrobnostmi parka\nmapa.closePopup();\n}\n}</pre></code>"
+                            "besedilo": "Uveljavitev prikazuje ustrezno dodan gumb za brisanje parka dodan poslušalec 2. stolpcu z ustrezno opredeljenima argumentoma <ic>onclick='odstraniKotKandidata(this, \" + indeks + \")'</ic>\n<ic>skripte/skripta.js</ic>\n<pre><code class=\"language-javascript\">function dodajParkMedKandidate(indeks) {\n  var tabelaParkov = document.getElementById(\"tabelaParkov\");\n  <del>if (false) {</del>\n  <hl>if (!kandidatiParkov.includes(indeks) && kandidatiParkov.length &lt; 2) {</hl>\n    // Dodaj novo vrstico v seznam parkov\n    var vrstica = tabelaParkov.insertRow(tabelaParkov.rows.length);\n    // Dodaj prazni celici (prva je za ime parka in njegovo oceno, druga pa za\n    // gumb za odstranjevanje iz seznama)\n    var stolpec1 = vrstica.insertCell(0);\n    var stolpec2 = vrstica.insertCell(1);\n<del>    stolpec1.innerHTML = \"\";</del>\n<hl>    stolpec1.innerHTML =\n      \"&lt;strong>\" +\n      parki[indeks].lastnosti.ime +\n      \"&lt;/strong>\" +\n      \" z oceno \" +\n      \"&lt;strong>\" +\n      parki[indeks].lastnosti.ocena +\n      \"&lt;/strong>\" +\n      \".\";</hl>\n<del>    stolpec2.innerHTML = \"\";</del>\n<hl>    stolpec2.innerHTML =\n      \"&lt;button class='rob senca' onclick='odstraniKotKandidata(this, \" +\n      indeks +\n      \")'>\" +\n      \"&lt;i class='far fa-trash-alt'>&lt;/i>&lt;/button>\";</hl>\n    // Dodaj park na seznam\n    kandidatiParkov.push(indeks);\n    // Zapri pojavno okno s podrobnostmi parka\n    mapa.closePopup();\n  }\n}</pre></code>"
                         }
                     ],
                     "opomba": ""
@@ -357,7 +357,7 @@
                         },
                         {
                             "tocke": 1,
-                            "besedilo": " Uveljavitev prikazuje dodajanje pojavnega okna z argumentom <ic>sporocilo</ic>, če je prisotno sporočilo.\nMožna rešitev v skripte/skripta.js\n<pre><code>function preveriPogojeSklopaHoteli(callback) {\nvar sporocilo = \"\";\nif (parseInt(document.getElementsByClassName(\"vsota\")[0].innerHTML) == 0)\nsporocilo += \"Skupni znesek v osnovnih podatkih mora biti več kot 0 €!\";\nif (kandidatiParkov.length &lt; 2)\nsporocilo += (sporocilo ? \" \" : \"\") + \"Izbrati je potrebno 2 parka!\";\nif (!sporocilo) {\ncallback();\n} else {\nalert(sporocilo);\n}\nomogociHotele(!sporocilo);\nreturn;\n}</pre></code>"
+                            "besedilo": " Uveljavitev prikazuje dodajanje pojavnega okna z argumentom <ic>sporocilo</ic>, če je prisotno sporočilo.\nMožna rešitev v skripte/skripta.js\n<pre><code class=\"language-javascript\">function preveriPogojeSklopaHoteli(callback) {\n  var sporocilo = \"\";\n<hl>  if (parseInt(document.getElementsByClassName(\"vsota\")[0].innerHTML) == 0)\n    sporocilo += \"Skupni znesek v osnovnih podatkih mora biti več kot 0 €!\";\n  if (kandidatiParkov.length &lt; 2)\n    sporocilo += (sporocilo ? \" \" : \"\") + \"Izbrati je potrebno 2 parka!\";</hl>\n  if (!sporocilo) {\n    callback();\n  }<hl> else {\n    alert(sporocilo);\n  }</hl>\n  omogociHotele(!sporocilo);\n  return;\n}</pre></code>"
                         },
                         {
                             "tocke": 2,
@@ -369,7 +369,7 @@
                         },
                         {
                             "tocke": 3,
-                            "besedilo": "Uveljavitev prikazuje pravilno uporabo funkcije <ic>izracunajVseHoteleVRadiju()</ic>, ki prejme argumente zemljepisno širino sredinske točke (<ic>srednjaTocka[1]</ic>) kot prvi argument (+1 točka), zemljepisno dolžino sredinske točke (<ic>srednjaTocka[0]</ic>) kot drugi argument (+1 točka) in vrednost vnosnega polja z enoličnim identifikatorjem <ic>radij</ic> (+1 točka). Možna rešitev v <ic>skripte/skripta.js</ic><pre><code>function prikaziHoteleZnotrajRadija() {\nomogociOsnovePodatke(false);\n// Preveri pogoje: izbrana 2 parka in vsota v osnovnih podatkih večjo od 0\npreveriPogojeSklopaHoteli(function () {\nvar srednjaTocka = -1;\nvar srednjaTocka = middlePoint(\nparki[kandidatiParkov[0]].koordinate.lat,\nparki[kandidatiParkov[0]].koordinate.lng,\nparki[kandidatiParkov[1]].koordinate.lat,\nparki[kandidatiParkov[1]].koordinate.lng\n);\n// Prikaži hotele glede na radij\npridobiPodatke(\"hoteli\", function (jsonRezultat, vrstaInteresneTocke) {\nhoteli = jsonRezultat;\n// Izbriši radij, če je obstajal od prej\nif (radijHotelov) mapa.removeLayer(radijHotelov);\nodstraniVseTockeNaZemljevidu();\n// Nariši radij (rdeč krog v središčni točki med izbranima parkoma)\nradijHotelov = undefined;\nradijHotelov = L.circle([srednjaTocka[1], srednjaTocka[0]], {\ncolor: \"transparent\",\nfillColor: \"red\",\nradius: parseInt(document.getElementById(\"radij\").value) * 1000,\n}).addTo(mapa);\n// Poišči vse hotele znotraj radija\nizracunajVseHoteleVRadiju(\nsrednjaTocka[1],\nsrednjaTocka[0],\ndocument.getElementById(\"radij\").value\n);\n// Nariši ujemajoče hotele na zemljevidu\nizrisRezultatov(kandidatiHotelov, vrstaInteresneTocke);\n});\n});\n}</code></pre>"
+                            "besedilo": "Uveljavitev prikazuje pravilno uporabo funkcije <ic>izracunajVseHoteleVRadiju()</ic>, ki prejme argumente zemljepisno širino sredinske točke (<ic>srednjaTocka[1]</ic>) kot prvi argument (+1 točka), zemljepisno dolžino sredinske točke (<ic>srednjaTocka[0]</ic>) kot drugi argument (+1 točka) in vrednost vnosnega polja z enoličnim identifikatorjem <ic>radij</ic> (+1 točka). Možna rešitev v <ic>skripte/skripta.js</ic><pre><code class=\"language-javascript\">function prikaziHoteleZnotrajRadija() {\n  omogociOsnovePodatke(false);\n\n  // Preveri pogoje: izbrana 2 parka in vsota v osnovnih podatkih večjo od 0\n  preveriPogojeSklopaHoteli(function () {\n<del>    var srednjaTocka = -1;</del>\n<hl>    var srednjaTocka = middlePoint(\n      parki[kandidatiParkov[0]].koordinate.lat,\n      parki[kandidatiParkov[0]].koordinate.lng,\n      parki[kandidatiParkov[1]].koordinate.lat,\n      parki[kandidatiParkov[1]].koordinate.lng\n    );</hl>\n    // Prikaži hotele glede na radij\n    pridobiPodatke(\"hoteli\", function (jsonRezultat, vrstaInteresneTocke) {\n      hoteli = jsonRezultat;\n      // Izbriši radij, če je obstajal od prej\n      if (radijHotelov) mapa.removeLayer(radijHotelov);\n      odstraniVseTockeNaZemljevidu();\n      // Nariši radij (rdeč krog v središčni točki med izbranima parkoma)\n<del>      radijHotelov = undefined;</del>\n<hl>      radijHotelov = L.circle([srednjaTocka[1], srednjaTocka[0]], {\n        color: \"transparent\",\n        fillColor: \"red\",\n        radius: parseInt(document.getElementById(\"radij\").value) * 1000,\n      }).addTo(mapa);</hl>\n      // Poišči vse hotele znotraj radija\n<hl>      izracunajVseHoteleVRadiju(\n        srednjaTocka[1],\n        srednjaTocka[0],\n        document.getElementById(\"radij\").value\n      );</hl>\n      // Nariši ujemajoče hotele na zemljevidu\n      izrisRezultatov(kandidatiHotelov, vrstaInteresneTocke);\n    });\n  });\n}</code></pre>"
                         },
                         {
                             "tocke": 1,
@@ -406,7 +406,7 @@
                         },
                         {
                             "tocke": 1,
-                            "besedilo": "Komentar uveljavitve je enak <ic>Najblizji hotel</ic> (upoštevajte tudi v primeru manjših slovničnih napak, npr. do 3 različni znaki).<br /><ic>Možna rešitev v skripte/skripta.js</ic><pre><code>function izracunajVseHoteleVRadiju(lat, lng, radij) {if (typeof radij == \"string\") radij = parseInt(radij);\nnajblizjiHotelOddaljenost = Number.MAX_SAFE_INTEGER;\n// Izprazni seznam potencialnih hotelov\nkandidatiHotelov = [];\nfor (let i = 0; i < hoteli.length; i++) {\n// Izračunaj oddaljenost hotela od središčne točke\nvar oddaljenost = distance(\nlat,\nlng,\nhoteli[i].koordinate.lat,\nhoteli[i].koordinate.lng,\n\"K\"\n);\n// Če je oddaljenost hotela manjša od radija, ga dodaj na seznam\nif (oddaljenost <= radij) {\nkandidatiHotelov.push(hoteli[i]);\nif (oddaljenost < najblizjiHotelOddaljenost) {\nnajblizjiHotelOddaljenost = oddaljenost;\nnajblizjiHotelNaziv =\nhoteli[i].lastnosti.ime + \", \" + hoteli[i].lastnosti.mesto;\n}\n}\n}\n}</code></pre>"
+                            "besedilo": "Komentar uveljavitve je enak <ic>Najblizji hotel</ic> (upoštevajte tudi v primeru manjših slovničnih napak, npr. do 3 različni znaki).<br /><ic>Možna rešitev v skripte/skripta.js</ic><pre><code class=\"language-javascript\">function izracunajVseHoteleVRadiju(lat, lng, radij) {\n    if (typeof radij == \"string\") radij = parseInt(radij);\n    najblizjiHotelOddaljenost = Number.MAX_SAFE_INTEGER;\n    // Izprazni seznam potencialnih hotelov\n    kandidatiHotelov = [];\n    for (let i = 0; i &lt; hoteli.length; i++) {\n      // Izračunaj oddaljenost hotela od središčne točke\n      var oddaljenost = distance(\n        lat,\n        lng,\n        hoteli[i].koordinate.lat,\n        hoteli[i].koordinate.lng,\n        \"K\"\n      );\n      // Če je oddaljenost hotela manjša od radija, ga dodaj na seznam\n<hl>      if (oddaljenost &lt;= radij) {\n        kandidatiHotelov.push(hoteli[i]);\n        if (oddaljenost &lt; najblizjiHotelOddaljenost) {\n          najblizjiHotelOddaljenost = oddaljenost;\n          najblizjiHotelNaziv =\n            hoteli[i].lastnosti.ime + \", \" + hoteli[i].lastnosti.mesto;\n        }</hl>\n      }\n    }\n  }</code></pre>"
                             }
                     ],
                     "opomba": ""
@@ -465,26 +465,133 @@
                 }
             ],
             "format": "# A #\\s*(.+?)\\s*#",
-            "tip": "commit"
+            "tip": "prenesi"
         }
     ],
     "offsets" : {
-        "1.A"  : 1300,
-        "2.B"  : 1302,
-        "3.C"  : 1304,
-        "4.D"  : 1308,
-        "5.E"  : 1313,
-        "6.F"  : 1317,
-        "7.G"  : 1321,
-        "8.H"  : 1326,
-        "9.I"  : 1331,
-        "10.J" : 1338,
-        "11.K" : 1342,
-        "12.L" : 1347,
-        "13.M" : 1352,
-        "14.N" : 1357,
-        "15.O" : 1373,
-        "16.P" : 1378,
-        "16.Q" : 1380
+        "1.A"  : [
+            "0_1300",
+            "0_1301"
+        ],
+        "2.B"  : [
+            "1_1302",
+            "1_1303"
+        ],
+        "3.C"  : [
+            "2_1304",
+            "2_1305",
+            "2_1306",
+            "2_1307"
+        ],
+        "4.D"  : [
+            "3_1308",
+            "3_1309",
+            "3_1310",
+            "3_1311",
+            "3_1312"
+        ],
+        "5.E"  : [
+            "4_1313",
+            "4_1314",
+            "4_1315",
+            "4_1316"
+        ],
+        "6.F"  : [
+            "5_1317",
+            "5_1318",
+            "5_1319",
+            "5_1320"
+        ],
+        "7.G"  : [
+            "6_1321",
+            "6_1322",
+            "6_1323",
+            "6_1324",
+            "6_1325",
+            "6_1388"
+        ],
+        "8.H"  : [
+            "7_1326",
+            "7_1327",
+            "7_1328",
+            "7_1329",
+            "7_1330"
+        ],
+        "9.I"  : [
+            "8_1331",
+            "8_1332",
+            "8_1333",
+            "8_1334",
+            "8_1335",
+            "8_1336",
+            "8_1337"
+        ],
+        "10.J" : [
+            "9_1338",
+            "9_1339",
+            "9_1340",
+            "9_1341"
+        ],
+        "11.K" : [
+            "10_1342",
+            "10_1343",
+            "10_1344",
+            "10_1345",
+            "10_1346"
+        ],
+        "12.L" : [
+            "11_1347",
+            "11_1348",
+            "11_1349",
+            "11_1350",
+            "11_1351"
+        ],
+        
+        "13.M" : [
+            "12_1352",
+            "12_1353",
+            "12_1354",
+            "12_1355",
+            "12_1356"
+        ],
+        "14.N" : [
+            "13_1357",
+            "13_1358",
+            "13_1359",
+            "13_1360",
+            "13_1361",
+            "13_1362",
+            "13_1363",
+            "13_1364",
+            "13_1365",
+            "13_1366",
+            "13_1367",
+            "13_1368",
+            "13_1369",
+            "13_1370",
+            "13_1371",
+            "13_1372"
+        ],
+        "15.O" : [
+            "14_1373",
+            "14_1374",
+            "14_1375",
+            "14_1376",
+            "14_1377"
+        ],
+        "16.P" : [
+            "15_1378",
+            "15_1379"
+        ],
+        "16.Q" : [
+            "16_1380",
+            "16_1381",
+            "16_1382",
+            "16_1383",
+            "16_1384",
+            "16_1385",
+            "16_1386",
+            "16_1387"
+        ]
     }
 }
