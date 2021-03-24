@@ -123,10 +123,11 @@ function izpisiStran() {
                     cbx.style.width = "2em";
                     cbx.onclick = (ev) =>  event.stopPropagation();
                     cbx.oninput = () => {
-                        if(cbx.value > cbx.max)
+                        if(parseInt(cbx.value) > parseInt(cbx.max))
                             cbx.value = cbx.max;
-                        else if(cbx.value < cbx.min)
+                        else if(parseInt(cbx.value) < parseInt(cbx.min))
                             cbx.value = cbx.min;
+                        oceniOddajo();
                     }
                     label.onclick = () => {
                         cbx.value = el.navodila[i].naloge[j].tocke;
