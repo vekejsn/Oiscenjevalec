@@ -21,6 +21,12 @@ pre {
     max-height: 50em;
 }
 
+nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
 .tocke {
     padding: 3px;
     padding-left: 5px;

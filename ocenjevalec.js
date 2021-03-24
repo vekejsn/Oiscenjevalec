@@ -77,7 +77,9 @@ function oceniOddajo() {
 
 function izpisiStran() {
     let naloge = document.getElementById('naloge');
+    let nav = document.getElementById('navigacija');
     naloge.innerHTML = '';
+    nav.innerHTML = '';
     vrednotenje.forEach((el, index) => {
         let row = cE('div', '', 'row mt-3 mx-5', naloge);
         cE('hr', '', '', row);
@@ -188,7 +190,12 @@ function izpisiStran() {
             }
         }
 
+        row.id = 'naloga-' + (index + 1);
+        let a = cE('a', index + 1, 'nav-link', nav);
+        a.href = '#naloga-' + (index + 1);
     });
     hljs.highlightAll();
+    let a = cE('a', 'Ocena', 'nav-link', nav);
+    a.href = '#ocena';
     oceniOddajo();
 }
