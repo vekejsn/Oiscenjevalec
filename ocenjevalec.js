@@ -262,6 +262,7 @@ function vrniKomentarje() {
 
 async function spremeniBarve() {
     let html = document.querySelector('html');
+    // console.log(html);
     if (html.className == "dark-mode") {
         html.className = "";
         document.getElementById('ninja-image').src = "ninja.png";
