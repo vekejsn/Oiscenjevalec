@@ -131,17 +131,17 @@ function izpisiStran() {
                     cbx.max = el.navodila[i].naloge[j].tocke;
                     cbx.min = cbx.value = 0;
                     cbx.style.width = "2em";
-                    cbx.onclick = (ev) =>  event.stopPropagation();
+                    cbx.onclick = (ev) =>  ev.stopPropagation();
                     cbx.oninput = () => {
-                        if(parseInt(cbx.value) > parseInt(cbx.max))
+                        if (parseInt(cbx.value) > parseInt(cbx.max))
                             cbx.value = cbx.max;
-                        else if(parseInt(cbx.value) < parseInt(cbx.min))
+                        else if (parseInt(cbx.value) < parseInt(cbx.min))
                             cbx.value = cbx.min;
                         oceniOddajo();
-                    }
+                    };
                     label.onclick = () => {
                         cbx.value = el.navodila[i].naloge[j].tocke;
-                    }
+                    };
                 }
                 cbx.id = index + '-' + el.navodila[i].sklop + '-' + j;
                 cbx.sklop = (index + 1) + '.' + el.navodila[i].sklop;
@@ -155,17 +155,15 @@ function izpisiStran() {
                 label.appendChild(document.createTextNode(' ' + el.navodila[i].naloge[j].tocke + ' ' + tocke));
                 cE('span', el.navodila[i].naloge[j].besedilo , '', li);
             }
-            {
-                let komentarji_label = cE('label', 'Komentar(ji) na korak:<br>' , '', ol);
-                komentarji_label.for = "textarea";
-                let komentarji = cE('textarea', '', 'form-control',komentarji_label)
-                komentarji.id = el.navodila[i].sklop + "-komentar";
-                komentarji.style = "width: 40vw; resize: none;";
-                komentarji.onchange = function() {oceniOddajo()};
-            }
 
             if (el.navodila[i].opomba)
                 cE('p', el.navodila[i].opomba, 'small', tockeDiv);
+            
+            let komentarji_label = cE('label', 'Lastni komentarji' , 'mt-1 w-100', tockeDiv);
+            komentarji_label.for = "textarea";
+            let komentarji = cE('textarea', '', 'form-control w-100', komentarji_label);
+            komentarji.id = el.navodila[i].sklop + "-komentar";
+            komentarji.onchange = () =>  {oceniOddajo();};
         }
             
         switch(el.tip) {
