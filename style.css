@@ -59,24 +59,30 @@ tr:nth-child(even){
 
 html.dark-mode {
     filter: invert(100%);
+    -webkit-filter: invert(100%);
 }
 html.dark-mode img {
     filter: invert(100%);
+    -webkit-filter: invert(100%);
 }
 html.dark-mode lang-css{
     filter: invert(100%) !important;
+    -webkit-filter: invert(100%) !important;
 }
 
 html.dark-mode .tocke {
     filter: invert(100%) !important;
+    -webkit-filter: invert(100%) !important;
     background-color: #238636;
     color: #d9ffb3;
 }
 
 html.dark-mode .tocke input{
     filter: invert(100%) !important;
+    -webkit-filter: invert(100%) !important;
 }
 
 html.dark-mode .text-success, html.dark-mode .text-danger {
     filter: invert(100%) !important;
+    -webkit-filter: invert(100%) !important;
 }
