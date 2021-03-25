@@ -260,14 +260,19 @@ function vrniKomentarje() {
     document.getElementById('komentarji-vsi').value = vsi_komentarji;
 }
 
-async function spremeniBarve() {
+function spremeniBarve() {
     let html = document.querySelector('html');
-    // console.log(html);
     if (html.className == "dark-mode") {
         html.className = "";
         document.getElementById('ninja-image').src = "ninja.png";
+        if (!navigator.userAgent.includes("Chrome")) {
+            html.style="background-color:white";
+        }
     } else {
         html.className = "dark-mode";
         document.getElementById('ninja-image').src = "ninja-dark.png";
+        if (!navigator.userAgent.includes("Chrome")) {
+            html.style="background-color:black";
+        }
     }
 }
