@@ -97,3 +97,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-strong {
   font-weight: bold;
 }
+
+
+html.dark-mode hl {
+  background-color: rgba(242,133,222,0.5);
+}
