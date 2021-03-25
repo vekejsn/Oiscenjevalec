@@ -101,6 +101,11 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 html.dark-mode hl {
   background-color: rgba(242,133,222,0.5);
 }
+
+html.dark-mode del {
+  background-color: rgba(59,230,236,0.5);
+}
+
 html.dark-mode .hljs-addition {
   background-color: #ECD1E0;
 } 
