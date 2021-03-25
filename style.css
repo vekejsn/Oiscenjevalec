@@ -76,3 +76,7 @@ html.dark-mode .tocke {
 html.dark-mode .tocke input{
     filter: invert(100%) !important;
 }
+
+html.dark-mode .text-success, html.dark-mode .text-danger {
+    filter: invert(100%) !important;
+}
